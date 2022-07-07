@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eo pipefail
+export HUB_HOME=/tmp
+
+# Download CT scan image for 110 training notebook
+mkdir /opt/app-root/notebooks/110-ct-segmentation-quantize/kits19
+cd /opt/app-root/notebooks/110-ct-segmentation-quantize/kits19
+curl -O -C - https://storage.openvinotoolkit.org/data/test_data/openvino_notebooks/kits19/case_00030.zip
+unzip case_00030.zip
+mkdir kits19_frames
+mv case_00030 kits19_frames
+cp -r kits19_frames/case_00030 kits19_frames/case_00001
+
+python /tmp/scripts/patch_notebooks.py /opt/app-root/notebooks
+# Temporarily ignore 208 because of model download instability in 2021.4.2
+exec /opt/app-root/bin/pytest --durations=10 --nbval --current-env --ignore=/opt/app-root/notebooks/107-speech-recognition-quantization -k "test_" /opt/app-root/notebooks

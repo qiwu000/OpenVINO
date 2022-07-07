@@ -1,0 +1,49 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+boto3 = "*"
+fastseg = "*"
+gdown = "*"
+geffnet = "==0.9.8"
+ipykernel = "==5.*"
+ipython = "==7.16.3"  # pin to avoid vulnerability
+ipywidgets = "*"
+jedi = "==0.17.2"
+jupyter-client = "<=7.2.0"
+jupyter-nbrequirements = "*"
+jupyterlab = "*"
+jupyterlab-git = "==0.30"
+matplotlib = "<3.4"
+monai = "*"
+nbval = "*"
+nest-asyncio = "<=1.5.4"
+nltk = ">=3.6.4"
+nncf = {extras = ["torch", "tf"]}
+openvino-dev = {extras = ["onnx","tensorflow2"], version = "==2022.1.0"}
+paddle2onnx = ">=0.6,<=0.9.6"
+paddlehub = "*"
+paddlenlp = "==2.0.8"  # pin to avoid conflict with requests
+paddlepaddle = "==2.2.*"
+Pillow = ">=8.3.2"
+ppgan = ">=2.1.0"
+pygments = ">=2.7.4"
+pytorch_lightning = "*"
+pytube = "*"
+rsa = ">=4.7"
+scikit-learn = ">=0.24.2"
+setuptools = ">56.0.0"
+supervisor = "==4.1.0"
+tensorflow_datasets = "*"
+torch = "<=1.7.1+cpu,>=1.5.1+cpu"
+torchmetrics = "==0.6.2"
+torchvision = "<=0.8.2+cpu,>=0.6.1+cpu"
+transformers = "*"
+yaspin = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"
